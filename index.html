@@ -158,13 +158,18 @@ section { padding-block: 96px; }
 .signup-form .status { margin: 0; min-height: 1.4em; }
 .signup-form .status.ok { color: var(--blush); }
 .signup-form .status.err { color: #ff8f86; }
+.no-event { display: grid; gap: 10px; border: 1px dashed var(--line); padding: 26px 28px; margin-bottom: 28px; }
+.no-event .label { color: var(--mute); }
+.no-event p { font-size: clamp(24px, 3.6vw, 42px); margin: 0; }
+.signup-form .stay { font-size: clamp(24px, 3vw, 34px); }
+.signup-form .stay .sl { color: var(--maroon-hot); }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .perks { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .perks li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); }
 .perks .n { font-family: var(--f-display); font-stretch: 125%; font-weight: 900; font-style: italic; color: var(--maroon-hot); }
 .perks b { display: block; font-family: var(--f-display); font-stretch: 125%; font-weight: 900; font-style: italic; text-transform: uppercase; font-size: 17px; margin-bottom: 4px; }
 .perks p { margin: 0; color: var(--mute); }
-@media (max-width: 820px) { .signup { padding-block: 48px 72px; } .signup-grid { grid-template-columns: 1fr; gap: 36px; } .signup-form { padding: 20px; } }
+@media (max-width: 820px) { .no-event { padding: 20px; } .signup { padding-block: 48px 72px; } .signup-grid { grid-template-columns: 1fr; gap: 36px; } .signup-form { padding: 20px; } }
 .page-head { display: grid; gap: 18px; padding-block: 90px 56px; }
 .page-head p { margin: 0; max-width: 40ch; }
 .page-title { font-size: clamp(38px, 10vw, 128px); }
@@ -457,9 +462,19 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
   </section>
   <!-- JOIN / SIGN-UP -->
   <section id="signup" class="signup join-only" aria-label="Sign up for updates">
+    <div class="wrap">
+      <div class="no-event">
+        <span class="label">Upcoming events</span>
+        <p class="disp">No upcoming event yet.</p>
+        <span class="label">Sign up below and you will be the first to know.</span>
+      </div>
+    </div>
     <div class="wrap signup-grid">
       <form class="signup-form" id="signup-form" novalidate>
-        <div class="label">Get updates</div>
+        <div>
+          <h2 class="disp stay">Stay updated<span class="sl"> /</span></h2>
+          <p class="fine" style="margin-top:8px">Put in your email so you hear about the next session, event or drop.</p>
+        </div>
         <label for="su-email"><span class="label">Email</span>
           <input type="email" id="su-email" name="email" placeholder="you@email.com" autocomplete="email" required>
         </label>
