@@ -130,6 +130,13 @@ section { padding-block: 96px; }
 /* ---------- VIEWS (home / #past-events) ---------- */
 :root[data-view="events"] .home-only, :root[data-view="join"] .home-only, :root[data-view="products"] .home-only,
 :root:not([data-view="events"]) .events-only, :root:not([data-view="join"]) .join-only, :root:not([data-view="products"]) .products-only { display: none !important; }
+.socks + .socks { border-top: 0; }
+.product-alt .socks-grid { grid-template-columns: 1fr 1.25fr; }
+.product-alt .sock-photos .a, .product-alt .sock-photos .b { aspect-ratio: 1 / 1; }
+.product-alt .h2 { font-size: clamp(32px, 4.6vw, 58px); }
+.product-alt .sock-photos { order: 2; }
+.product-alt .sock-photos figure { background: #fff; }
+@media (max-width: 820px) { .product-alt .socks-grid { grid-template-columns: 1fr; } .product-alt .sock-photos { order: 0; } }
 .more-products { padding-block: 48px 96px; }
 .more-box { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px 32px; border: 1px dashed var(--line); padding: 28px; }
 .more-box h2 { font-size: clamp(22px, 3vw, 34px); margin-bottom: 8px; }
@@ -278,7 +285,7 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
 <div class="quick home-only">
   <div class="wrap quick-grid">
     <a class="qlink" href="#join-us"><div><b>Join a session</b><small class="label">Runs, workouts, events</small></div><span class="arr">→</span></a>
-    <a class="qlink" href="#products"><div><b>Products</b><small class="label">Socks and more</small></div><span class="arr">→</span></a>
+    <a class="qlink" href="#products"><div><b>Products</b><small class="label">Socks and long sleeves</small></div><span class="arr">→</span></a>
     <a class="qlink" href="#activities"><div><b>What we do</b><small class="label">More than a run club</small></div><span class="arr">→</span></a>
     <a class="qlink" href="#contact"><div><b>Contact us</b><small class="label">Instagram or email</small></div><span class="arr">→</span></a>
   </div>
@@ -402,10 +409,33 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
       </div>
     </div>
   </section>
+
+  <section id="longsleeve" class="socks product-alt products-only" aria-labelledby="ls-h">
+    <div class="wrap socks-grid">
+      <div class="sock-photos">
+        <figure class="a"><img src="img/longsleeve-front.jpg" alt="Black Solmara Community Long Sleeve, front, with a small white sun mark on the chest" loading="lazy" ><figcaption class="label bracket">Front</figcaption></figure>
+        <figure class="b"><img src="img/longsleeve-back.jpg" alt="Back of the long sleeve with a hand-lettered print and a turtle drawing" loading="lazy" ><figcaption class="label bracket">Back</figcaption></figure>
+      </div>
+      <div>
+        <div class="label" style="color:var(--mute);margin-bottom:14px">Product 002 · Solmara Community Long Sleeve</div>
+        <h2 class="disp h2" id="ls-h">Community<br>Long Sleeve<span class="sl"> /</span></h2>
+        <p>A black long sleeve with our sun mark on the chest. On the back, hand-lettered: "Solmara Club isn't just a club. It's a community built on movement, freedom and good energy."</p>
+        <p>Wear it to the run, to the gym, or to coffee after.</p>
+        <ul class="specs label">
+          <li><span>Colour</span><span class="swatches"><i style="background:#111"></i>&nbsp;Black</span></li>
+          <li><span>Front</span><span>Sun mark on the chest</span></li>
+          <li><span>Back</span><span>Hand-lettered community print + turtle</span></li>
+          <li><span>Made by</span><span>Solmara Club, Thailand</span></li>
+          <li><span>How to get it</span><span>DM us on Instagram</span></li>
+        </ul>
+        <a class="btn btn-red label" href="https://www.instagram.com/solmara.club/" target="_blank" rel="noopener">Ask about the long sleeve ↗</a>
+      </div>
+    </div>
+  </section>
   <section class="more-products products-only" aria-label="More products">
     <div class="wrap">
       <div class="more-box">
-        <div><h2 class="disp">More from Solmara<span class="sl"> /</span></h2><p>We make more than socks. Message us on Instagram to ask about the full range, sizes and what is in stock.</p></div>
+        <div><h2 class="disp">More on the way<span class="sl"> /</span></h2><p>New products land here first. Message us on Instagram to ask about sizes and what is in stock.</p></div>
         <a class="btn btn-red label" href="https://www.instagram.com/solmara.club/" target="_blank" rel="noopener">Ask on Instagram ↗</a>
       </div>
     </div>
