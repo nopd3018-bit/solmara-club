@@ -52,7 +52,7 @@ img { display: block; }
 .hero-meta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 18px 32px; margin-top: 30px; }
 .hero-meta p { margin: 0; max-width: 34ch; }
 .hero-foot { display: flex; justify-content: space-between; gap: 16px; padding-block: 0 22px; opacity: .85; }
-@media (max-width: 720px) { .nav-links a:not(.nav-tab) { display: none; } .nav-links a.nav-tab { border-left: 0; padding: 0 4px; white-space: nowrap; } .nav .btn { white-space: nowrap; padding: 10px 12px; } .nav { gap: 10px; } .hero-body { padding-block: 90px 24px; } }
+@media (max-width: 720px) { .nav-links a:not(.nav-tab) { display: none; } .nav-links a.nav-tab { border-left: 0; padding: 0 2px; white-space: nowrap; } .nav-links .long { display: none; } .nav-links { gap: 12px; } .nav-logo img { height: 13px; } .nav .btn { white-space: nowrap; padding: 10px 12px; } .nav { gap: 10px; } .hero-body { padding-block: 90px 24px; } }
 
 /* ---------- QUICK LINKS ---------- */
 .quick { padding-block: 22px; border-bottom: 1px solid var(--line); }
@@ -128,8 +128,13 @@ section { padding-block: 96px; }
 @media (max-width: 760px) { .ground { padding-block: 0 72px; } .ground-grid { grid-template-columns: 1fr 1fr; } .ground-text { grid-column: 1 / -1; padding-right: 0; } }
 
 /* ---------- VIEWS (home / #past-events) ---------- */
-:root[data-view="events"] .home-only, :root[data-view="join"] .home-only,
-:root:not([data-view="events"]) .events-only, :root:not([data-view="join"]) .join-only { display: none !important; }
+:root[data-view="events"] .home-only, :root[data-view="join"] .home-only, :root[data-view="products"] .home-only,
+:root:not([data-view="events"]) .events-only, :root:not([data-view="join"]) .join-only, :root:not([data-view="products"]) .products-only { display: none !important; }
+.more-products { padding-block: 48px 96px; }
+.more-box { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px 32px; border: 1px dashed var(--line); padding: 28px; }
+.more-box h2 { font-size: clamp(22px, 3vw, 34px); margin-bottom: 8px; }
+.more-box p { margin: 0; color: var(--mute); max-width: 46ch; }
+@media (max-width: 760px) { .more-products { padding-block: 36px 72px; } .more-box { padding: 20px; } }
 
 /* ---------- JOIN / SIGN-UP ---------- */
 .signup { padding-block: 72px 96px; }
@@ -155,7 +160,7 @@ section { padding-block: 96px; }
 @media (max-width: 820px) { .signup { padding-block: 48px 72px; } .signup-grid { grid-template-columns: 1fr; gap: 36px; } .signup-form { padding: 20px; } }
 .page-head { display: grid; gap: 18px; padding-block: 90px 56px; }
 .page-head p { margin: 0; max-width: 40ch; }
-.page-title { font-size: clamp(48px, 10vw, 128px); }
+.page-title { font-size: clamp(38px, 10vw, 128px); }
 .page-title .sl { color: var(--blush); opacity: .5; }
 .nav-links a.is-active { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px; }
 
@@ -234,8 +239,8 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#activities">Activities</a>
-        <a href="#past-events" class="nav-tab">Past Events</a>
-        <a href="#socks">Socks</a>
+        <a href="#past-events" class="nav-tab" data-tab="events"><span class="long">Past </span>Events</a>
+        <a href="#products" class="nav-tab" data-tab="products">Products</a>
         <a href="#join">Join</a>
       </div>
       <a href="#join-us" class="btn label">Join us ›</a>
@@ -260,6 +265,11 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
       <h1 class="disp page-title">Join the club<span class="sl"> /</span></h1>
       <p class="label">Leave your email and we will send you new sessions, events and drops before anyone else.</p>
     </div>
+    <div class="page-head products-only">
+      <span class="label bracket">Solmara Club · Products</span>
+      <h1 class="disp page-title">Products<span class="sl"> /</span></h1>
+      <p class="label">Gear made for the way the club moves. Run in it, train in it, live in it.</p>
+    </div>
     <div class="hero-foot label home-only"><span>Based in Thailand</span><span>© 2026</span></div>
   </div>
 </header>
@@ -268,7 +278,7 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
 <div class="quick home-only">
   <div class="wrap quick-grid">
     <a class="qlink" href="#join-us"><div><b>Join a session</b><small class="label">Runs, workouts, events</small></div><span class="arr">→</span></a>
-    <a class="qlink" href="#socks"><div><b>Solmara socks</b><small class="label">Our first product</small></div><span class="arr">→</span></a>
+    <a class="qlink" href="#products"><div><b>Products</b><small class="label">Socks and more</small></div><span class="arr">→</span></a>
     <a class="qlink" href="#activities"><div><b>What we do</b><small class="label">More than a run club</small></div><span class="arr">→</span></a>
     <a class="qlink" href="#contact"><div><b>Contact us</b><small class="label">Instagram or email</small></div><span class="arr">→</span></a>
   </div>
@@ -369,7 +379,7 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
   </section>
 
   <!-- SOCKS -->
-  <section id="socks" class="socks home-only">
+  <section id="socks" class="socks products-only">
     <div class="wrap socks-grid">
       <div class="sock-photos">
         <figure class="a"><img src="img/sock-worn.jpg" alt="Runner on a Bangkok street at night wearing black Solmara socks with the knitted wordmark and spark" loading="lazy"><figcaption class="label bracket">Black</figcaption></figure>
@@ -389,6 +399,14 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
           <li><span>How to get them</span><span>DM us on Instagram</span></li>
         </ul>
         <a class="btn btn-red label" href="https://www.instagram.com/solmara.club/" target="_blank" rel="noopener">Ask about the drop ↗</a>
+      </div>
+    </div>
+  </section>
+  <section class="more-products products-only" aria-label="More products">
+    <div class="wrap">
+      <div class="more-box">
+        <div><h2 class="disp">More from Solmara<span class="sl"> /</span></h2><p>We make more than socks. Message us on Instagram to ask about the full range, sizes and what is in stock.</p></div>
+        <a class="btn btn-red label" href="https://www.instagram.com/solmara.club/" target="_blank" rel="noopener">Ask on Instagram ↗</a>
       </div>
     </div>
   </section>
@@ -457,13 +475,13 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
 
 <script>
 (function () {
-  var root = document.documentElement, tab = document.querySelector('.nav-tab');
-  var VIEWS = { '#past-events': ['events', 'Past Events · Solmara Club'], '#join-us': ['join', 'Join · Solmara Club'] };
+  var root = document.documentElement, tabs = document.querySelectorAll('.nav-tab');
+  var VIEWS = { '#past-events': ['events', 'Past Events · Solmara Club'], '#join-us': ['join', 'Join · Solmara Club'], '#products': ['products', 'Products · Solmara Club'] };
   function show() {
     var v = VIEWS[location.hash], view = v ? v[0] : 'home';
     var was = root.getAttribute('data-view');
     root.setAttribute('data-view', view);
-    if (tab) tab.classList.toggle('is-active', view === 'events');
+    for (var i = 0; i < tabs.length; i++) tabs[i].classList.toggle('is-active', tabs[i].getAttribute('data-tab') === view);
     document.title = v ? v[1] : 'Solmara Club';
     if (view !== 'home' || (was && was !== 'home')) {
       var id = location.hash.slice(1), el = view === 'home' && id && document.getElementById(id);
