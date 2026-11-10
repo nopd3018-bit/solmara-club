@@ -1,0 +1,500 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Solmara Club</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Solmara Club: a Thailand-based active lifestyle brand and community. Move. Explore. Create.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap">
+<style>
+/* Layout: photo hero washed in brand maroon with the wordmark → dark warm sections; italic expanded type echoes the logo. Single dark look by choice. */
+:root {
+  --maroon: #711917;      /* logo ground */
+  --maroon-hot: #a3241f;  /* hover / emphasis on dark */
+  --blush: #ffdedc;       /* logo letters, primary text */
+  --ink: #120a0a;         /* page ground, near-black biased to maroon */
+  --panel: #1c1110;
+  --line: #3a2422;
+  --mute: #a08380;
+  --ghost: #2b1716;
+  --f-display: "Archivo", "Arial Black", "Helvetica Neue", sans-serif;
+  --f-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--ink); color: var(--blush); font-family: var(--f-body); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--blush); outline-offset: 3px; }
+img { display: block; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.label { font-stretch: 125%; font-weight: 600; font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; }
+.bracket::before { content: "[\00a0\00a0"; } .bracket::after { content: "\00a0\00a0]"; }
+.disp { font-family: var(--f-display); font-stretch: 125%; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -.02em; line-height: .92; margin: 0; text-wrap: balance; }
+
+/* ---------- HERO ---------- */
+.hero { position: relative; overflow: hidden; background: var(--maroon); isolation: isolate; }
+.hero-bg { position: absolute; inset: 0; z-index: -1; overflow: hidden; background: var(--maroon); }
+.hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,10,10,0) 55%, rgba(18,10,10,.35) 100%); }
+
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 22px; }
+.nav-logo img { height: 16px; width: auto; }
+.nav-links { display: flex; align-items: center; }
+.nav-links a { padding: 0 12px; border-left: 1px solid rgba(255,222,220,.4); }
+.nav-links a:first-child { border-left: 0; }
+.nav-links a:hover { opacity: .7; }
+.btn { display: inline-flex; align-items: center; gap: 8px; background: var(--blush); color: var(--maroon); padding: 10px 16px; transition: background .2s, color .2s; }
+.btn:hover { background: var(--ink); color: var(--blush); }
+
+.hero-body { display: grid; gap: 26px; padding-block: 120px 30px; }
+.hero-logo { width: min(100%, 980px); height: auto; filter: drop-shadow(0 6px 30px rgba(0,0,0,.25)); }
+.hero-club { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.hero-club .disp { font-size: clamp(34px, 6.6vw, 84px); }
+.hero-meta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 18px 32px; margin-top: 30px; }
+.hero-meta p { margin: 0; max-width: 34ch; }
+.hero-foot { display: flex; justify-content: space-between; gap: 16px; padding-block: 0 22px; opacity: .85; }
+@media (max-width: 720px) { .nav-links a:not(.nav-tab) { display: none; } .nav-links a.nav-tab { border-left: 0; padding: 0 4px; white-space: nowrap; } .nav .btn { white-space: nowrap; padding: 10px 12px; } .nav { gap: 10px; } .hero-body { padding-block: 90px 24px; } }
+
+/* ---------- QUICK LINKS ---------- */
+.quick { padding-block: 22px; border-bottom: 1px solid var(--line); }
+.quick-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.qlink { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 16px; background: var(--panel); border: 1px solid var(--line); transition: background .2s, border-color .2s; min-width: 0; }
+.qlink:hover { background: var(--maroon); border-color: var(--maroon); }
+.qlink b { display: block; font-family: var(--f-display); font-stretch: 125%; font-weight: 900; font-style: italic; font-size: 17px; text-transform: uppercase; line-height: 1.05; letter-spacing: -.01em; }
+.qlink small { display: block; color: var(--mute); margin-top: 5px; }
+.qlink:hover small { color: var(--blush); }
+.qlink .arr { font-size: 18px; font-weight: 700; }
+@media (max-width: 860px) { .quick-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 440px) { .quick-grid { grid-template-columns: 1fr; } }
+
+/* ---------- MARQUEE ---------- */
+.marquee { background: var(--maroon); overflow: hidden; white-space: nowrap; padding-block: 12px; }
+.marquee-track { display: inline-flex; animation: slide 24s linear infinite; }
+.marquee span { font-family: var(--f-display); font-stretch: 125%; font-weight: 900; font-style: italic; font-size: 24px; text-transform: uppercase; padding: 0 20px; letter-spacing: -.01em; }
+.marquee span i { opacity: .5; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* ---------- ABOUT ---------- */
+section { padding-block: 96px; }
+.about-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; }
+.about-text { margin: 0; font-stretch: 112%; font-weight: 700; text-transform: uppercase; font-size: clamp(17px, 2vw, 22px); line-height: 1.3; }
+.about-text .dim { color: var(--mute); }
+.x { font-weight: 800; margin-right: 10px; color: var(--maroon-hot); }
+@media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; gap: 22px; } section { padding-block: 72px; } }
+
+/* ---------- GHOST WORDS ---------- */
+.ghost { padding-block: 0 30px; position: relative; overflow: hidden; }
+.ghost-words { color: var(--ghost); font-size: clamp(36px, 13.5vw, 172px); line-height: .86; display: grid; }
+.ghost-words span:nth-child(2) { justify-self: center; }
+.ghost-words span:nth-child(3) { justify-self: end; }
+.ghost-words em { font-style: inherit; color: var(--maroon); }
+.ghost-cap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px 30px; margin-top: 18px; }
+.ghost svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.ghost svg path { fill: none; stroke: var(--maroon-hot); stroke-width: 1.4; opacity: .85; }
+.ghost svg circle { fill: var(--maroon-hot); }
+
+/* ---------- ACTIVITIES ---------- */
+.sec-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 14px 28px; margin-bottom: 36px; }
+.h2 { font-size: clamp(36px, 5.8vw, 72px); }
+.h2 .sl { color: var(--maroon-hot); }
+.sec-head p { margin: 0; max-width: 34ch; color: var(--mute); }
+.acts { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.act { position: relative; aspect-ratio: 3 / 4.4; max-width: 100%; overflow: hidden; background: var(--panel); min-width: 0; }
+.act img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.45) brightness(.7); transition: filter .5s, transform .6s; }
+.act:hover img, .act:focus-within img { filter: none; transform: scale(1.04); }
+.act::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,10,10,0) 40%, rgba(18,10,10,.85) 100%); pointer-events: none; }
+.act .cap { position: absolute; left: 14px; right: 14px; bottom: 14px; z-index: 1; display: grid; gap: 8px; }
+.act h3 { font-size: clamp(18px, 1.7vw, 22px); line-height: 1; }
+.act p { margin: 0; font-size: 12.5px; line-height: 1.4; color: var(--blush); opacity: .85; }
+.act .tag { position: absolute; top: 12px; left: 14px; z-index: 1; }
+@media (max-width: 960px) {
+  .acts { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 62%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; scrollbar-width: none; }
+  .acts::-webkit-scrollbar { display: none; }
+  .act { scroll-snap-align: start; }
+  .act img { filter: grayscale(.2) brightness(.75); }
+  .swipe { display: block !important; }
+}
+@media (max-width: 520px) { .acts { grid-auto-columns: 78%; } }
+.swipe { display: none; margin-top: 10px; color: var(--mute); }
+
+/* ---------- ON THE GROUND ---------- */
+.ground { padding-block: 0 96px; }
+.ground-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; align-items: stretch; }
+.ground-text { display: grid; align-content: space-between; gap: 24px; padding-right: 20px; min-width: 0; }
+.ground-text p { margin: 0; color: var(--mute); max-width: 34ch; }
+.ground figure { margin: 0; position: relative; overflow: hidden; aspect-ratio: 3 / 4; max-width: 100%; background: var(--panel); }
+.ground figure img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+.ground figure:hover img { transform: scale(1.04); }
+.ground figcaption { position: absolute; left: 12px; bottom: 10px; }
+@media (max-width: 760px) { .ground { padding-block: 0 72px; } .ground-grid { grid-template-columns: 1fr 1fr; } .ground-text { grid-column: 1 / -1; padding-right: 0; } }
+
+/* ---------- VIEWS (home / #past-events) ---------- */
+:root[data-view="events"] .home-only, :root[data-view="join"] .home-only,
+:root:not([data-view="events"]) .events-only, :root:not([data-view="join"]) .join-only { display: none !important; }
+
+/* ---------- JOIN / SIGN-UP ---------- */
+.signup { padding-block: 72px 96px; }
+.signup-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: start; }
+.signup-form { display: grid; gap: 18px; background: var(--panel); border: 1px solid var(--line); padding: 28px; min-width: 0; }
+.signup-form label { display: grid; gap: 8px; }
+.signup-form input[type="email"], .signup-form input[type="text"] { width: 100%; font: inherit; font-size: 16px; color: var(--blush); background: var(--ink); border: 1px solid var(--line); padding: 14px 14px; border-radius: 0; }
+.signup-form input::placeholder { color: var(--mute); }
+.signup-form input:focus-visible { outline: 2px solid var(--blush); outline-offset: 1px; border-color: var(--blush); }
+.signup-form .opt { color: var(--mute); }
+.signup-form button { justify-self: start; border: 0; cursor: pointer; font-size: 12px; padding: 15px 22px; }
+.signup-form button:disabled { opacity: .6; cursor: progress; }
+.signup-form .fine { margin: 0; color: var(--mute); font-size: 12.5px; line-height: 1.5; }
+.signup-form .status { margin: 0; min-height: 1.4em; }
+.signup-form .status.ok { color: var(--blush); }
+.signup-form .status.err { color: #ff8f86; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.perks { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.perks li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.perks .n { font-family: var(--f-display); font-stretch: 125%; font-weight: 900; font-style: italic; color: var(--maroon-hot); }
+.perks b { display: block; font-family: var(--f-display); font-stretch: 125%; font-weight: 900; font-style: italic; text-transform: uppercase; font-size: 17px; margin-bottom: 4px; }
+.perks p { margin: 0; color: var(--mute); }
+@media (max-width: 820px) { .signup { padding-block: 48px 72px; } .signup-grid { grid-template-columns: 1fr; gap: 36px; } .signup-form { padding: 20px; } }
+.page-head { display: grid; gap: 18px; padding-block: 90px 56px; }
+.page-head p { margin: 0; max-width: 40ch; }
+.page-title { font-size: clamp(48px, 10vw, 128px); }
+.page-title .sl { color: var(--blush); opacity: .5; }
+.nav-links a.is-active { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px; }
+
+/* ---------- PAST EVENTS ---------- */
+.events { padding-block: 72px 96px; }
+.ev-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 20px; align-items: start; }
+.ev { display: grid; gap: 16px; min-width: 0; }
+.ev-poster { display: block; overflow: hidden; background: var(--panel); border: 1px solid var(--line); }
+.ev-poster img { width: 100%; height: auto; transition: transform .6s; }
+.ev:hover .ev-poster img { transform: scale(1.03); }
+.ev-date { color: var(--maroon-hot); }
+.ev h2 { font-size: clamp(22px, 2.6vw, 32px); margin: 6px 0 0; }
+.ev-meta { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.ev-meta li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.ev-meta li span:last-child { color: var(--mute); text-align: right; }
+@media (max-width: 760px) { .page-head { padding-block: 64px 40px; } .events { padding-block: 48px 72px; } .ev-grid { grid-template-columns: 1fr; gap: 44px; } }
+
+/* ---------- SOCKS ---------- */
+.socks { background: var(--panel); border-block: 1px solid var(--line); }
+.socks-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
+.sock-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; min-width: 0; }
+.sock-photos figure { margin: 0; position: relative; overflow: hidden; background: var(--maroon); }
+.sock-photos .a, .sock-photos .b { aspect-ratio: 3 / 4; }
+.swatches { display: flex; gap: 8px; align-items: center; }
+.swatches i { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--line); display: inline-block; }
+.sock-photos img { width: 100%; height: 100%; object-fit: cover; }
+.sock-photos figcaption { position: absolute; left: 10px; top: 10px; background: rgba(18,10,10,.72); padding: 4px 8px; }
+.socks p { margin: 0 0 16px; max-width: 46ch; color: #d3b9b6; }
+.socks .h2 { margin-bottom: 22px; }
+.specs { list-style: none; padding: 0; margin: 26px 0 30px; border-top: 1px solid var(--line); }
+.specs li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.specs li span:last-child { color: var(--mute); text-align: right; }
+.btn-red { background: var(--maroon); color: var(--blush); padding: 14px 20px; }
+.btn-red:hover { background: var(--blush); color: var(--maroon); }
+@media (max-width: 820px) { .socks-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+/* ---------- JOIN ---------- */
+.join { position: relative; overflow: hidden; isolation: isolate; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.step { background: var(--panel); border: 1px solid var(--line); padding: 22px 20px 24px; display: grid; gap: 40px; align-content: space-between; min-width: 0; }
+.step .n { font-family: var(--f-display); font-stretch: 125%; font-weight: 900; font-style: italic; font-size: 44px; line-height: 1; color: var(--maroon-hot); font-variant-numeric: tabular-nums; }
+.step h3 { font-size: 22px; margin-bottom: 8px; }
+.step p { margin: 0; color: var(--mute); }
+@media (max-width: 760px) { .steps { grid-template-columns: 1fr; } .step { gap: 18px; } }
+
+/* ---------- FOOTER ---------- */
+footer { background: var(--maroon); padding-block: 56px 26px; }
+footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
+.foot-club { font-size: clamp(22px, 4vw, 44px); margin-bottom: 40px; }
+.foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; }
+.foot-row a:hover { opacity: .7; }
+.contact { display: grid; grid-template-columns: auto 1fr 1fr; gap: 14px 40px; align-items: start; padding-block: 26px; margin-bottom: 26px; border-block: 1px solid rgba(255,222,220,.3); }
+.contact .c-item { display: grid; gap: 6px; min-width: 0; }
+.contact .c-item small { opacity: .7; }
+.contact .c-val { font-family: var(--f-display); font-stretch: 125%; font-weight: 900; font-style: italic; font-size: clamp(17px, 2vw, 24px); text-transform: lowercase; letter-spacing: -.01em; overflow-wrap: anywhere; user-select: all; }
+.contact a.c-val:hover { opacity: .7; }
+.ig { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; color: var(--blush); transition: opacity .2s; }
+.ig svg { width: 100%; height: 100%; }
+.ig-lg { width: 30px; height: 30px; }
+.ig:hover { opacity: .7; }
+@media (max-width: 760px) { .contact { grid-template-columns: 1fr; gap: 22px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .collage, .marquee-track { animation: none; }
+  html { scroll-behavior: auto; }
+}
+</style>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+  </div>
+  <div class="wrap">
+    <nav class="nav label" aria-label="Main">
+      <a href="#top" class="nav-logo" aria-label="Solmara Club home"><img src="img/solmara-logo.png" alt="Solmara"></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#activities">Activities</a>
+        <a href="#past-events" class="nav-tab">Past Events</a>
+        <a href="#socks">Socks</a>
+        <a href="#join">Join</a>
+      </div>
+      <a href="#join-us" class="btn label">Join us ›</a>
+    </nav>
+
+    <div class="hero-body home-only">
+      <span class="label bracket">Active lifestyle club · Thailand</span>
+      <h1 style="margin:0"><img class="hero-logo" src="img/solmara-logo.png" alt="Solmara Club"></h1>
+      <div class="hero-club"><span class="disp">Club /</span><span class="disp" style="opacity:.55">Move. Explore. Create.</span></div>
+      <div class="hero-meta">
+        <p class="label">Running, fitness, outdoor trips, creative workshops and community events. One club for people who like to keep moving.</p>
+        <a href="#join-us" class="label bracket">Join the club</a>
+      </div>
+    </div>
+    <div class="page-head events-only">
+      <span class="label bracket">Solmara Club · Archive</span>
+      <h1 class="disp page-title">Past events<span class="sl"> /</span></h1>
+      <p class="label">Runs, collabs and days out. Follow us on Instagram so you catch the next one.</p>
+    </div>
+    <div class="page-head join-only">
+      <span class="label bracket">Solmara Club · Join</span>
+      <h1 class="disp page-title">Join the club<span class="sl"> /</span></h1>
+      <p class="label">Leave your email and we will send you new sessions, events and drops before anyone else.</p>
+    </div>
+    <div class="hero-foot label home-only"><span>Based in Thailand</span><span>© 2026</span></div>
+  </div>
+</header>
+
+<!-- QUICK LINKS -->
+<div class="quick home-only">
+  <div class="wrap quick-grid">
+    <a class="qlink" href="#join-us"><div><b>Join a session</b><small class="label">Runs, workouts, events</small></div><span class="arr">→</span></a>
+    <a class="qlink" href="#socks"><div><b>Solmara socks</b><small class="label">Our first product</small></div><span class="arr">→</span></a>
+    <a class="qlink" href="#activities"><div><b>What we do</b><small class="label">More than a run club</small></div><span class="arr">→</span></a>
+    <a class="qlink" href="#contact"><div><b>Contact us</b><small class="label">Instagram or email</small></div><span class="arr">→</span></a>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee home-only" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Move <i>/</i></span><span>Explore <i>/</i></span><span>Create <i>/</i></span><span>Run <i>/</i></span><span>Train <i>/</i></span><span>Connect <i>/</i></span>
+    <span>Move <i>/</i></span><span>Explore <i>/</i></span><span>Create <i>/</i></span><span>Run <i>/</i></span><span>Train <i>/</i></span><span>Connect <i>/</i></span>
+  </div>
+</div>
+
+<main>
+  <!-- ABOUT -->
+  <section id="about" class="home-only">
+    <div class="wrap about-grid">
+      <div class="label">About us</div>
+      <p class="about-text"><span class="x">×</span>Solmara Club is a Thailand-based active lifestyle brand and community that brings people together through sports, fitness and social experiences. <span class="dim">Most run clubs only run. We do that too, but we also train, head outdoors, make things in creative workshops and throw community events. It is a space to stay active, meet like-minded people, find new interests and build friendships that go beyond sport.</span></p>
+    </div>
+  </section>
+
+  <!-- GHOST WORDS -->
+  <div class="ghost home-only" aria-label="Move. Explore. Create.">
+    <svg viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M90 60 C 160 140, 120 220, 260 260 S 420 420, 560 360 S 760 240, 860 380 S 1040 520, 1120 470"/>
+      <circle cx="90" cy="60" r="5"/><circle cx="1120" cy="470" r="5"/>
+    </svg>
+    <div class="wrap">
+      <p class="disp ghost-words" aria-hidden="true"><span>Move<em>.</em></span><span>Explore<em>.</em></span><span>Create<em>.</em></span></p>
+      <div class="ghost-cap label"><span>One club, many ways to move.</span><span>Come for one thing, stay for the people.</span></div>
+    </div>
+  </div>
+
+  <!-- ACTIVITIES -->
+  <section id="activities" class="home-only">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="disp h2">More than<br>a run club<span class="sl"> /</span></h2>
+        <p class="label">Pick what moves you. Every activity is open to all levels.</p>
+      </div>
+      <ul class="acts">
+        <li class="act" tabindex="0"><img src="img/club-run.jpg" style="object-position:50% 72%" alt="Solmara Club members together on a field with the Bangkok skyline behind" loading="lazy"><span class="tag label bracket">Move</span><div class="cap"><h3 class="disp">Running</h3><p>Social group runs at an easy, chatty pace. Nobody gets left behind.</p></div></li>
+        <li class="act" tabindex="0"><img src="img/club-fit.jpg" style="object-position:50% 50%" alt="Two members at the HYROX Bangkok finish line" loading="lazy"><span class="tag label bracket">Train</span><div class="cap"><h3 class="disp">Fitness sessions</h3><p>Strength, conditioning and mobility. Start together, finish together.</p></div></li>
+        <li class="act" tabindex="0"><img src="img/club-trip.jpg" style="object-position:50% 62%" alt="Club members piled onto the back of a truck on a day out" loading="lazy"><span class="tag label bracket">Explore</span><div class="cap"><h3 class="disp">Outdoor adventures</h3><p>Hikes, trails, beaches and day trips out of town.</p></div></li>
+        <li class="act" tabindex="0"><img src="img/work.jpg" alt="People painting and printing at a creative workshop" loading="lazy"><span class="tag label bracket">Create</span><div class="cap"><h3 class="disp">Creative workshops</h3><p>Hands-on sessions where you make something and learn a new skill.</p></div></li>
+        <li class="act" tabindex="0"><img src="img/club-social.jpg" style="object-position:40% 70%" alt="A big Solmara Club group with the club banner outside Sunset Coffee Roasters" loading="lazy"><span class="tag label bracket">Connect</span><div class="cap"><h3 class="disp">Community events</h3><p>Socials and collabs where the club turns into friends.</p></div></li>
+      </ul>
+      <div class="swipe label">Swipe →</div>
+    </div>
+  </section>
+
+  <!-- ON THE GROUND -->
+  <section class="ground home-only" aria-labelledby="ground-h">
+    <div class="wrap ground-grid">
+      <div class="ground-text">
+        <div class="label">From the club</div>
+        <div style="display:grid;gap:16px">
+          <h2 class="disp h2" id="ground-h">On the<br>ground<span class="sl"> /</span></h2>
+          <p class="label">Real sessions, real people. Night games on the court, recovery after a hard week, and a lot of laughing in between.</p>
+        </div>
+      </div>
+      <figure><img src="img/club-court.jpg" style="object-position:50% 60%" alt="Six club members on a basketball court at night" loading="lazy"><figcaption class="label bracket">Night court</figcaption></figure>
+      <figure><img src="img/club-recovery.jpg" style="object-position:50% 70%" alt="Two members at an ice bath, one helping the other out" loading="lazy"><figcaption class="label bracket">Recovery</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- PAST EVENTS -->
+  <section id="events" class="events events-only" aria-label="Past events">
+    <div class="wrap">
+      <div class="ev-grid">
+        <article class="ev">
+          <a class="ev-poster" href="https://www.instagram.com/solmara.club/" target="_blank" rel="noopener"><img src="img/event-pattaya.jpg" alt="Poster for Solmara Pattaya Run Club, Sunday 9 August 2026, 6:30 AM at Central Pattaya Beach" loading="lazy"></a>
+          <div>
+            <div class="label ev-date">Sun 9 Aug 2026 · 6:30 AM</div>
+            <h2 class="disp">Pattaya Run Club</h2>
+          </div>
+          <ul class="ev-meta label">
+            <li><span>Where</span><span>Central Pattaya Beach</span></li>
+            <li><span>Run</span><span>5K · Social pace</span></li>
+            <li><span>Entry</span><span>Free · All paces welcome</span></li>
+          </ul>
+        </article>
+        <article class="ev">
+          <a class="ev-poster" href="https://www.instagram.com/solmara.club/" target="_blank" rel="noopener"><img src="img/event-flowstate.jpg" alt="Poster for Flow State, Solmara Club x Flow House Bangkok, Sunday 27 September, 3:00 PM" loading="lazy"></a>
+          <div>
+            <div class="label ev-date">Sun 27 Sep 2026 · 3:00 PM</div>
+            <h2 class="disp">Flow State</h2>
+          </div>
+          <ul class="ev-meta label">
+            <li><span>With</span><span>Flow House Bangkok × Strae</span></li>
+            <li><span>Where</span><span>Flow House Bangkok</span></li>
+            <li><span>Entry</span><span>890 THB</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCKS -->
+  <section id="socks" class="socks home-only">
+    <div class="wrap socks-grid">
+      <div class="sock-photos">
+        <figure class="a"><img src="img/sock-worn.jpg" alt="Runner on a Bangkok street at night wearing black Solmara socks with the knitted wordmark and spark" loading="lazy"><figcaption class="label bracket">Black</figcaption></figure>
+        <figure class="b"><img src="img/sock-red.jpg" alt="Close-up of the red Solmara sock showing the knitted blush wordmark and spark" loading="lazy"><figcaption class="label bracket">Red</figcaption></figure>
+      </div>
+      <div>
+        <div class="label" style="color:var(--mute);margin-bottom:14px">Product 001</div>
+        <h2 class="disp h2">The Solmara<br>sock<span class="sl"> /</span></h2>
+        <p>Our first lifestyle product. A nylon crew sock with the Solm✦ra wordmark knitted down one side and our spark on the other, built for the way the club lives: a morning run, a gym session, a trail, then coffee after.</p>
+        <p>Thin, smooth and light, with a soft sheen. One pair that keeps up with all of it.</p>
+        <ul class="specs label">
+          <li><span>Material</span><span>Nylon knit</span></li>
+          <li><span>Colours</span><span class="swatches"><i style="background:#f4f1ee"></i><i style="background:#b3121f"></i><i style="background:#111"></i>&nbsp;White · Red · Black</span></li>
+          <li><span>Design</span><span>Knitted wordmark + spark</span></li>
+          <li><span>Use</span><span>Run · Train · Explore · Everyday</span></li>
+          <li><span>Made by</span><span>Solmara Club, Thailand</span></li>
+          <li><span>How to get them</span><span>DM us on Instagram</span></li>
+        </ul>
+        <a class="btn btn-red label" href="https://www.instagram.com/solmara.club/" target="_blank" rel="noopener">Ask about the drop ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN -->
+  <section id="join" class="join home-only">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="disp h2">Join the club<span class="sl"> /</span></h2>
+        <p class="label">Just bring yourself.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="n">01</div><div><h3 class="disp">Follow us</h3><p>Session times and places are announced on our Instagram.</p></div></div>
+        <div class="step"><div class="n">02</div><div><h3 class="disp">Pick a session</h3><p>A run, a workout, a trip or a workshop. Choose whatever sounds fun.</p></div></div>
+        <div class="step"><div class="n">03</div><div><h3 class="disp">Show up</h3><p>Come as you are. You will leave with new friends and probably sore legs.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <!-- JOIN / SIGN-UP -->
+  <section id="signup" class="signup join-only" aria-label="Sign up for updates">
+    <div class="wrap signup-grid">
+      <form class="signup-form" id="signup-form" novalidate>
+        <div class="label">Get updates</div>
+        <label for="su-email"><span class="label">Email</span>
+          <input type="email" id="su-email" name="email" placeholder="you@email.com" autocomplete="email" required>
+        </label>
+        <label for="su-name"><span class="label">Name <span class="opt">(optional)</span></span>
+          <input type="text" id="su-name" name="name" placeholder="Your name" autocomplete="name">
+        </label>
+        <div class="hp" aria-hidden="true"><label for="su-hp">Leave empty</label><input type="text" id="su-hp" name="_honey" tabindex="-1" autocomplete="off"></div>
+        <button type="submit" class="btn btn-red label" id="su-btn">Keep me updated ›</button>
+        <p class="status label" id="su-status" role="status" aria-live="polite"></p>
+        <p class="fine">We only use your email for Solmara Club updates. Want off the list? Email solmara.club@gmail.com.</p>
+      </form>
+      <ul class="perks">
+        <li><span class="n">01</span><div><b>New sessions</b><p>Runs, workouts, trips and workshops, with time and place.</p></div></li>
+        <li><span class="n">02</span><div><b>Events and collabs</b><p>First word on club events like Pattaya Run Club and Flow State.</p></div></li>
+        <li><span class="n">03</span><div><b>Product drops</b><p>When new Solmara socks and gear are ready.</p></div></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="foot-logo" src="img/solmara-logo.png" alt="Solmara">
+    <p class="disp foot-club">Club / Move. Explore. Create.</p>
+    <div class="contact" id="contact">
+      <div class="label">Contact us</div>
+      <div class="c-item">
+        <small class="label">Instagram</small>
+        <a class="ig ig-lg" href="https://www.instagram.com/solmara.club/" target="_blank" rel="noopener" aria-label="Solmara Club on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor"/></svg></a>
+      </div>
+      <div class="c-item">
+        <small class="label">Email</small>
+        <span class="c-val" id="email">solmara.club@gmail.com</span>
+      </div>
+    </div>
+    <div class="foot-row label">
+      <span>Active lifestyle club · Thailand</span>
+      <a class="ig" href="https://www.instagram.com/solmara.club/" target="_blank" rel="noopener" aria-label="Solmara Club on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor"/></svg></a>
+      <span>© 2026 Solmara Club</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement, tab = document.querySelector('.nav-tab');
+  var VIEWS = { '#past-events': ['events', 'Past Events · Solmara Club'], '#join-us': ['join', 'Join · Solmara Club'] };
+  function show() {
+    var v = VIEWS[location.hash], view = v ? v[0] : 'home';
+    var was = root.getAttribute('data-view');
+    root.setAttribute('data-view', view);
+    if (tab) tab.classList.toggle('is-active', view === 'events');
+    document.title = v ? v[1] : 'Solmara Club';
+    if (view !== 'home' || (was && was !== 'home')) {
+      var id = location.hash.slice(1), el = view === 'home' && id && document.getElementById(id);
+      if (el) el.scrollIntoView(); else window.scrollTo(0, 0);
+    }
+  }
+  window.addEventListener('hashchange', show);
+  show();
+})();
+</script>
+<script>
+(function () {
+  var form = document.getElementById('signup-form'); if (!form) return;
+  var email = document.getElementById('su-email'), name = document.getElementById('su-name');
+  var btn = document.getElementById('su-btn'), status = document.getElementById('su-status');
+  function say(msg, kind) { status.textContent = msg; status.className = 'status label ' + (kind || ''); }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var addr = email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(addr)) { say('Enter a valid email address, like you@email.com.', 'err'); email.focus(); return; }
+    if (document.getElementById('su-hp').value) return;
+    btn.disabled = true; say('Sending…');
+    fetch('https://formsubmit.co/ajax/solmara.club@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email: addr, name: name.value.trim(), _subject: 'New Solmara Club sign-up', _template: 'table', _captcha: 'false' })
+    }).then(function (r) { return r.json().then(function (j) { if (!r.ok || String(j.success) === 'false') throw new Error(j.message || 'failed'); }); })
+      .then(function () { form.reset(); say("You're on the list. See you at the next session.", 'ok'); })
+      .catch(function () { say("That didn't go through. Try again, or email solmara.club@gmail.com.", 'err'); })
+      .then(function () { btn.disabled = false; });
+  });
+})();
+</script>
+</body></html>
