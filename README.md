@@ -9,7 +9,7 @@ Link-in-bio site for Solmara Club. Move. Explore. Create.
 ## Email sign-ups
 The form on `#join-us` adds each sign-up to MailerLite (form "Solmara website", account 2790456).
 See, export and email subscribers at dashboard.mailerlite.com → Subscribers / Campaigns.
-The form uses Google reCAPTCHA because the MailerLite form has it switched on.
+reCAPTCHA must stay OFF on the MailerLite form (its key only works on MailerLite pages); the site uses a hidden honeypot field against bots.
 
 ## Edit in VS Code
 Open this folder, install the **Live Server** extension, right-click `index.html` → "Open with Live Server".

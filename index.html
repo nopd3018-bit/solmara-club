@@ -166,8 +166,6 @@ section { padding-block: 96px; }
 .no-event p { font-size: clamp(24px, 3.6vw, 42px); margin: 0; }
 .signup-form .stay { font-size: clamp(24px, 3vw, 34px); }
 .signup-form .stay .sl { color: var(--maroon-hot); }
-.signup-form .captcha { min-height: 78px; max-width: 100%; overflow: hidden; }
-@media (max-width: 360px) { .signup-form .g-recaptcha { transform: scale(.88); transform-origin: 0 0; } }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .perks { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .perks li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); }
@@ -487,7 +485,6 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
           <input type="text" id="su-name" name="name" placeholder="Your name" autocomplete="name">
         </label>
         <div class="hp" aria-hidden="true"><label for="su-hp">Leave empty</label><input type="text" id="su-hp" name="website" tabindex="-1" autocomplete="off"></div>
-        <div class="captcha"><div class="g-recaptcha" id="su-captcha" data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD" data-theme="dark"></div></div>
         <button type="submit" class="btn btn-red label" id="su-btn">Keep me updated ›</button>
         <p class="status label" id="su-status" role="status" aria-live="polite"></p>
         <p class="fine">By signing up you agree to receive emails from Solmara Club about sessions, events and product drops. Every email has an unsubscribe link, so you can leave anytime.</p>
@@ -543,7 +540,6 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
   show();
 })();
 </script>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
 (function () {
   var ML_URL = 'https://assets.mailerlite.com/jsonp/2790456/forms/203944881998005529/subscribe';
@@ -551,35 +547,23 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
   var email = document.getElementById('su-email'), name = document.getElementById('su-name');
   var btn = document.getElementById('su-btn'), status = document.getElementById('su-status');
   function say(msg, kind) { status.textContent = msg; status.className = 'status label ' + (kind || ''); }
-  function captchaToken() { try { return window.grecaptcha ? grecaptcha.getResponse() : ''; } catch (e) { return ''; } }
-  function resetCaptcha() { try { if (window.grecaptcha) grecaptcha.reset(); } catch (e) {} }
-  function done() { form.reset(); resetCaptcha(); say("You're on the list. We'll email you about the next session, event or drop.", 'ok'); }
+  function done() { form.reset(); say("You're on the list. We'll email you about the next session, event or drop.", 'ok'); }
+  function fail() { say("That didn't go through. Check your email address and try again, or email solmara.club@gmail.com.", 'err'); }
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var addr = email.value.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(addr)) { say('Enter a valid email address, like you@email.com.', 'err'); email.focus(); return; }
     if (document.getElementById('su-hp').value) return;
-    var token = captchaToken();
-    if (!token) { say("Tick \"I'm not a robot\" first, then press the button again.", 'err'); return; }
     var data = new URLSearchParams();
     data.append('fields[email]', addr);
     if (name.value.trim()) data.append('fields[name]', name.value.trim());
-    data.append('g-recaptcha-response', token);
     data.append('ml-submit', '1');
     data.append('anticsrf', 'true');
     btn.disabled = true; say('Sending…');
     fetch(ML_URL, { method: 'POST', body: data })
       .then(function (r) { return r.json(); })
-      .then(function (j) {
-        if (j && j.success) { done(); return; }
-        resetCaptcha();
-        say("That didn't go through. Check your email address, tick the box again and retry.", 'err');
-      }, function () {
-        /* MailerLite may not let the browser read its reply; send it again without reading it. */
-        return fetch(ML_URL, { method: 'POST', body: data, mode: 'no-cors' }).then(done, function () {
-          resetCaptcha(); say("That didn't go through. Check your connection, or email solmara.club@gmail.com.", 'err');
-        });
-      })
+      .then(function (j) { if (j && j.success) done(); else fail(); })
+      .catch(fail)
       .then(function () { btn.disabled = false; });
   });
 })();
