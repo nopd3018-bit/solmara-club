@@ -128,8 +128,18 @@ section { padding-block: 96px; }
 @media (max-width: 760px) { .ground { padding-block: 0 72px; } .ground-grid { grid-template-columns: 1fr 1fr; } .ground-text { grid-column: 1 / -1; padding-right: 0; } }
 
 /* ---------- VIEWS (home / #past-events) ---------- */
-:root[data-view="events"] .home-only, :root[data-view="join"] .home-only, :root[data-view="products"] .home-only,
-:root:not([data-view="events"]) .events-only, :root:not([data-view="join"]) .join-only, :root:not([data-view="products"]) .products-only { display: none !important; }
+:root[data-view="events"] .home-only, :root[data-view="join"] .home-only, :root[data-view="products"] .home-only, :root[data-view="welcome"] .home-only,
+:root:not([data-view="events"]) .events-only, :root:not([data-view="join"]) .join-only, :root:not([data-view="products"]) .products-only, :root:not([data-view="welcome"]) .welcome-only { display: none !important; }
+.welcome { padding-block: 72px 96px; }
+.welcome-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.wcard { display: grid; gap: 14px; grid-template-rows: auto 1fr auto; align-content: start; background: var(--panel); border: 1px solid var(--line); padding: 24px 22px; min-width: 0; }
+.wcard .n { font-family: var(--f-display); font-stretch: 125%; font-weight: 900; font-style: italic; font-size: 40px; line-height: 1; color: var(--maroon-hot); }
+.wcard h2 { font-size: 22px; margin: 0 0 8px; }
+.wcard p { margin: 0; color: var(--mute); }
+.wcard .btn { justify-self: start; }
+.welcome-back { margin-top: 28px; display: inline-block; color: var(--mute); }
+.welcome-back:hover { color: var(--blush); }
+@media (max-width: 760px) { .welcome { padding-block: 48px 72px; } .welcome-grid { grid-template-columns: 1fr; } }
 .socks + .socks { border-top: 0; }
 .product-alt .socks-grid { grid-template-columns: 1fr 1.25fr; }
 .product-alt .sock-photos .a, .product-alt .sock-photos .b { aspect-ratio: 1 / 1; }
@@ -273,6 +283,11 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
       <span class="label bracket">Solmara Club · Archive</span>
       <h1 class="disp page-title">Past events<span class="sl"> /</span></h1>
       <p class="label">Runs, collabs and days out. Follow us on Instagram so you catch the next one.</p>
+    </div>
+    <div class="page-head welcome-only">
+      <span class="label bracket">Solmara Club · Member</span>
+      <h1 class="disp page-title"><span id="welcome-hi">You're in</span><span class="sl"> /</span></h1>
+      <p class="label">You're now a Solmara Club member. We'll email you first about new sessions, events and product drops.</p>
     </div>
     <div class="page-head join-only">
       <span class="label bracket">Solmara Club · Join</span>
@@ -463,6 +478,18 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
       </div>
     </div>
   </section>
+  <!-- WELCOME (after sign-up) -->
+  <section id="welcome" class="welcome welcome-only" aria-label="Welcome to Solmara Club">
+    <div class="wrap">
+      <div class="welcome-grid">
+        <div class="wcard"><div class="n">01</div><div><h2 class="disp">Follow the club</h2><p>Session times, places and photos go up on Instagram every week.</p></div><a class="btn btn-red label" href="https://www.instagram.com/solmara.club/" target="_blank" rel="noopener">@solmara.club ↗</a></div>
+        <div class="wcard"><div class="n">02</div><div><h2 class="disp">Gear up</h2><p>Socks and long sleeves made for the way the club moves.</p></div><a class="btn btn-shopee label" href="https://shopee.co.th/solmara.club" target="_blank" rel="noopener">Shopee ↗</a></div>
+        <div class="wcard"><div class="n">03</div><div><h2 class="disp">See what we do</h2><p>Look back at past runs, collabs and days out.</p></div><a class="btn label" href="#past-events">Past events ›</a></div>
+      </div>
+      <a class="welcome-back label" href="#top">‹ Back to home</a>
+    </div>
+  </section>
+
   <!-- JOIN / SIGN-UP -->
   <section id="signup" class="signup join-only" aria-label="Sign up for updates">
     <div class="wrap">
@@ -524,7 +551,7 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
 <script>
 (function () {
   var root = document.documentElement, tabs = document.querySelectorAll('.nav-tab');
-  var VIEWS = { '#past-events': ['events', 'Past Events · Solmara Club'], '#join-us': ['join', 'Join · Solmara Club'], '#products': ['products', 'Products · Solmara Club'] };
+  var VIEWS = { '#past-events': ['events', 'Past Events · Solmara Club'], '#join-us': ['join', 'Join · Solmara Club'], '#products': ['products', 'Products · Solmara Club'], '#welcome': ['welcome', 'Welcome · Solmara Club'] };
   function show() {
     var v = VIEWS[location.hash], view = v ? v[0] : 'home';
     var was = root.getAttribute('data-view');
@@ -547,7 +574,13 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
   var email = document.getElementById('su-email'), name = document.getElementById('su-name');
   var btn = document.getElementById('su-btn'), status = document.getElementById('su-status');
   function say(msg, kind) { status.textContent = msg; status.className = 'status label ' + (kind || ''); }
-  function done() { form.reset(); say("You're on the list. We'll email you about the next session, event or drop.", 'ok'); }
+  function done() {
+    var first = name.value.trim().split(/\s+/)[0];
+    var hi = document.getElementById('welcome-hi');
+    if (hi) hi.textContent = first ? "You're in, " + first : "You're in";
+    form.reset(); say('', '');
+    location.hash = 'welcome';
+  }
   function fail() { say("That didn't go through. Check your email address and try again, or email solmara.club@gmail.com.", 'err'); }
   form.addEventListener('submit', function (e) {
     e.preventDefault();
