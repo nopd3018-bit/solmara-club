@@ -7,9 +7,8 @@ Link-in-bio site for Solmara Club. Move. Explore. Create.
 - Tabs: home, `#past-events`, `#join-us` (email sign-up).
 
 ## Email sign-ups
-The form on `#join-us` adds each sign-up to MailerLite (form "Solmara website", account 2790456).
-See, export and email subscribers at dashboard.mailerlite.com → Subscribers / Campaigns.
-reCAPTCHA must stay OFF on the MailerLite form (its key only works on MailerLite pages); the site uses a hidden honeypot field against bots.
+The form on `#join-us` is being moved to Brevo. Until its form address is added (`SIGNUP_URL` in index.html),
+the form shows a "sign-ups paused" note. A hidden honeypot field blocks most bots.
 
 ## Edit in VS Code
 Open this folder, install the **Live Server** extension, right-click `index.html` → "Open with Live Server".

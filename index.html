@@ -569,7 +569,7 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
 </script>
 <script>
 (function () {
-  var ML_URL = 'https://assets.mailerlite.com/jsonp/2790456/forms/203944881998005529/subscribe';
+  var SIGNUP_URL = ''; /* email service form address goes here (Brevo, coming soon) */
   var form = document.getElementById('signup-form'); if (!form) return;
   var email = document.getElementById('su-email'), name = document.getElementById('su-name');
   var btn = document.getElementById('su-btn'), status = document.getElementById('su-status');
@@ -587,13 +587,14 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
     var addr = email.value.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(addr)) { say('Enter a valid email address, like you@email.com.', 'err'); email.focus(); return; }
     if (document.getElementById('su-hp').value) return;
+    if (!SIGNUP_URL) { say('Sign-ups are paused for a moment while we upgrade. Follow @solmara.club on Instagram for now.', 'err'); return; }
     var data = new URLSearchParams();
     data.append('fields[email]', addr);
     if (name.value.trim()) data.append('fields[name]', name.value.trim());
     data.append('ml-submit', '1');
     data.append('anticsrf', 'true');
     btn.disabled = true; say('Sending…');
-    fetch(ML_URL, { method: 'POST', body: data })
+    fetch(SIGNUP_URL, { method: 'POST', body: data })
       .then(function (r) { return r.json(); })
       .then(function (j) { if (j && j.success) done(); else fail(); })
       .catch(fail)
