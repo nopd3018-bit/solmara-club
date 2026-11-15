@@ -569,7 +569,8 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
 </script>
 <script>
 (function () {
-  var SIGNUP_URL = ''; /* email service form address goes here (Brevo, coming soon) */
+  /* Brevo form "Solmara website" -> list "Website sign-ups" */
+  var SIGNUP_URL = 'https://553db697.sibforms.com/serve/MUIFAKG2AcDxSdhfrNJDeeU1j61GqVQvZZaRgcYZnCy0x0sQ8P9UM1m_lcu7ylMtfbCxDFl5od7qjM26QQWFRsk3xQ6aFyk55NNQsWNxhAJuinNqv6ZR3YuUIni5oHpuBUpoFqmGdTi0MiGC1LBrlsSh3pzKZ8jTT3MHlThJxm3CklA8h58EqDoAZpaKWIJh_N6v896ZWXixXBN9Gg==';
   var form = document.getElementById('signup-form'); if (!form) return;
   var email = document.getElementById('su-email'), name = document.getElementById('su-name');
   var btn = document.getElementById('su-btn'), status = document.getElementById('su-status');
@@ -588,11 +589,10 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(addr)) { say('Enter a valid email address, like you@email.com.', 'err'); email.focus(); return; }
     if (document.getElementById('su-hp').value) return;
     if (!SIGNUP_URL) { say('Sign-ups are paused for a moment while we upgrade. Follow @solmara.club on Instagram for now.', 'err'); return; }
-    var data = new URLSearchParams();
-    data.append('fields[email]', addr);
-    if (name.value.trim()) data.append('fields[name]', name.value.trim());
-    data.append('ml-submit', '1');
-    data.append('anticsrf', 'true');
+    var data = new FormData();
+    data.append('EMAIL', addr);
+    data.append('email_address_check', '');
+    data.append('locale', 'en');
     btn.disabled = true; say('Sending…');
     fetch(SIGNUP_URL, { method: 'POST', body: data })
       .then(function (r) { return r.json(); })

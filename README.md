@@ -7,8 +7,9 @@ Link-in-bio site for Solmara Club. Move. Explore. Create.
 - Tabs: home, `#past-events`, `#join-us` (email sign-up).
 
 ## Email sign-ups
-The form on `#join-us` is being moved to Brevo. Until its form address is added (`SIGNUP_URL` in index.html),
-the form shows a "sign-ups paused" note. A hidden honeypot field blocks most bots.
+The form on `#join-us` adds each sign-up to Brevo (form "Solmara website" -> list "Website sign-ups").
+See and export contacts at app.brevo.com -> Contacts -> Lists. The thank-you email is Brevo's "simple confirmation" on that form.
+Keep reCAPTCHA off on the Brevo form; the site uses a hidden honeypot field against bots.
 
 ## Edit in VS Code
 Open this folder, install the **Live Server** extension, right-click `index.html` → "Open with Live Server".
