@@ -582,7 +582,9 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
     form.reset(); say('', '');
     location.hash = 'welcome';
   }
-  function fail() { say("That didn't go through. Check your email address and try again, or email solmara.club@gmail.com.", 'err'); }
+  function fail(code) {
+    say("That didn't go through. Check your email address and try again, or email solmara.club@gmail.com." + (code ? ' (code ' + code + ')' : ''), 'err');
+  }
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var addr = email.value.trim();
@@ -595,9 +597,15 @@ footer .foot-logo { width: 100%; height: auto; margin-bottom: 18px; }
     data.append('locale', 'en');
     btn.disabled = true; say('Sending…');
     fetch(SIGNUP_URL, { method: 'POST', body: data })
-      .then(function (r) { return r.json(); })
-      .then(function (j) { if (j && j.success) done(); else fail(); })
-      .catch(fail)
+      .then(function (r) {
+        return r.text().then(function (t) {
+          var j = null; try { j = JSON.parse(t); } catch (e) {}
+          if (j && j.success === false) { fail('B' + r.status); return; }   /* Brevo said no */
+          if (r.ok) { done(); return; }                                    /* Brevo received it */
+          fail('H' + r.status);                                            /* server error */
+        });
+      })
+      .catch(function (e) { if (window.console) console.warn('Sign-up request failed:', e); fail('N'); }) /* never reached Brevo */
       .then(function () { btn.disabled = false; });
   });
 })();
